@@ -95,6 +95,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    background-image: url("https://s29.postimg.org/vho8xb2pj/landing_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
     /*margin-top: 60px;*/
   }
   /*basic*/
@@ -119,7 +123,7 @@
     opacity: 0.3;
   }
 
-    #toTop:hover {
+  #toTop:hover {
     text-decoration: none;
     position: fixed;
     bottom: 20px;
@@ -131,7 +135,7 @@
     border: none;
     opacity: 1;
   }
-/*header*/
+  /*header*/
 
   #nav {
     position: fixed;
