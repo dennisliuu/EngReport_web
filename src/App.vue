@@ -1,21 +1,27 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
+    <nav class="navbar fixed-top">
+      <div class="wow animated fadeInDown">
+        <div class="hr1"> </div>
+        <div class="ul">
+          <a class="btn1" href="#about">
+            <div class="li1">About</div>
+          </a>
+          <a class="btn1" href="#info">
+            <div class="li1">Info</div>
+          </a>
+          <a class="btn1" href="#resource">
+            <div class="li1">Resource</div>
+          </a>
+        </div>
+        <div class="hr1"></div>
+      </div>
+      <!--<a class="navbar-brand" href="#">Fixed top</a>-->
+    </nav>
+
     <header>
       <section class="blur-container blur-7 justify-content-center align-items-center">
-        <div id="nav">
-          <ul class="social-container header__item">
-            <li class="social__icon social__icon--fb">
-              <img src="https://s29.postimg.org/3ldyta4qb/image.png" alt="facebook">
-            </li>
-            <li class="social__icon social__icon--dr">
-              <img src="https://s29.postimg.org/vqltn8fhv/image.png" alt="dribbble">
-            </li>
-            <li class="social__icon social__icon--in">
-              <img src="https://s29.postimg.org/p1fa77u5v/image.png" alt="instagram">
-            </li>
-          </ul>
-        </div>
         <div class="blur-box">
           <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
             <h2 class="text-uppercase">English as life</h2>
@@ -23,8 +29,12 @@
         </div>
       </section>
     </header>
-    
+
     <hello></hello>
+
+    <transition name="fade" mode="out-in">
+      <el-button id="toTop" type="text" icon="arrow-up" @click.native="backTop" v-if="scrollPosition>200"></el-button>
+    </transition>
 
     <footer class="footer-distributed">
       <div class="footer-left">
@@ -38,11 +48,6 @@
         </p>
       </div>
     </footer>
-
-
-    <transition name="fade" mode="out-in">
-      <el-button id="toTop" type="text" icon="arrow-up" @click.native="backTop" v-if="scrollPosition>200"></el-button>
-    </transition>
 
   </div>
 </template>
@@ -70,7 +75,14 @@
       }
     },
     mounted: function () {
-      window.addEventListener('scroll', this.updateScroll)
+      window.addEventListener('scroll', this.updateScroll),
+        $(window).scroll(function (evt) {
+          if ($(window).scrollTop() > 0)
+            // $(".navbar").removeClass("navbar-light");
+            $(".navbar").css('background-color', '#f0f0f0');
+          else
+            $(".navbar").css('background-color', 'transparent');
+        });
     }
   }
 
@@ -107,7 +119,7 @@
     opacity: 0.3;
   }
 
-  #toTop:hover {
+    #toTop:hover {
     text-decoration: none;
     position: fixed;
     bottom: 20px;
@@ -119,7 +131,7 @@
     border: none;
     opacity: 1;
   }
-  /*header*/
+/*header*/
 
   #nav {
     position: fixed;
@@ -136,33 +148,6 @@
   #nav li {
     display: inline-block;
     padding: 10px;
-  }
-
-  .social-container {
-    width: 7.25rem;
-    list-style: none;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    float: right;
-  }
-
-  .social-container .social__icon {
-    width: 1.5rem;
-    float: left;
-    cursor: pointer;
-  }
-
-  .social-container .social__icon.social__icon--dr {
-    margin-left: 1.25rem;
-  }
-
-  .social-container .social__icon.social__icon--in {
-    margin-left: 1.5rem;
-  }
-
-  .social-container .social__icon.social__icon--fb img {
-    margin-right: 0 1.5rem;
   }
   /*banner*/
 

@@ -1,26 +1,5 @@
 <template>
-  <div class="hello animated fadeInUp">
-    <p></p>
-    <div class="hr1"> </div>
-    <div class="ul">
-
-      <a class="btn1" href="#about">
-        <div class="li1">
-          About
-        </div>
-      </a>
-      <a class="btn1" href="#info">
-        <div class="li1">Info</div>
-      </a>
-      <a class="btn1" href="#resource">
-        <div class="li1">Resource</div>
-      </a>
-    </div>
-
-    <div class="hr1"></div>
-
-    <p></p>
-
+  <div class="hello">
     <el-row>
       <el-col :span="24">
         <div class="grid-content wow fadeInUp animated animated">
@@ -29,10 +8,19 @@
               <div class="col-md-6">
                 <div class="clearfix"> </div>
               </div>
-              <div class="col-md-6">
-                <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">About</h3>
-                <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, a young man have an idea, maybe there is a better way to learn English, and the journey
-                  has begun...</h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">About</h3>
+                  <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">Once upon a time, a young man have an idea, maybe there is a better way to learn English, and the journey
+                    has begun...</h4>
+                </div>
+                <div class="col-md-6">
+                  <div class="hover column">
+                    <div>
+                      <figure><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t34.0-12/18155259_1268145399887893_217123409_n.jpg?oh=3104b17a405d432beb362c0eea661729&oe=592907AA" style="width: 300px" /></figure>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="clearfix"> </div>
             </div>
@@ -46,13 +34,26 @@
               <div class="col-md-6">
                 <div class="clearfix"> </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Info</h3>
-                <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, an young man have an idea, maybe there is a better way to learn English, and the journey
-                  has begun...</h4>
+                <h6 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                  <p>英文報章分享</p>
+
+                  <p>時間:星期二加星期三中間空堂</p>
+
+                  <p>地點:三教空教室(暫定)</p>
+
+                  <p>內容:一周準備一篇文章(報章新聞雜誌皆可) 利用充分時間將文章內不熟的單字及文法作筆記(單 字可用電子檔印出) (用螢光筆畫記兩份:自己看到別人也看的到) 準備兩道問答題測驗對方有無看懂文意 必要時翻譯文章內容
+                    並列印雙份文件保存。
+                  </p>
+
+                  <p>方式:雙方將不會的單字及文法弄懂後 準備方開始朗讀文章(注意段落及語氣) 閱讀後讓對方自行吸收約10min 開始問答題(no Chinese) 會後檢討對方的優缺點 之後隨著程度上升調整文章篇數 一次要比一次好
+                    我們的目標就是希望能把英文學好、精通英文。 一起加油！
+                  </p>
+                </h6>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7599692877966!2d121.53330425066187!3d25.042218644037117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d14c16483%3A0xf9ec3b549c4d6dbf!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1495694272159"
                   width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                  <p></p>
+                <p></p>
               </div>
               <div class="clearfix"> </div>
             </div>
@@ -67,9 +68,10 @@
                 <div class="clearfix"> </div>
               </div>
               <div class="col-md-6">
-                <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">About</h3>
-                <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, an young man have an idea, maybe there is a better way to learn English, and the journey
-                  has begun...</h4>
+                <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Resource</h3>
+                <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+
+                </h4>
               </div>
               <div class="clearfix"> </div>
             </div>
@@ -124,4 +126,43 @@
   @import url(animate.css);
   @import url(basic.css);
   @import url(element.css);
+
+  .hover figure img {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .hover figure:hover img {
+    opacity: .5;
+  }
+
+  .column {
+    margin: 15px 15px 0;
+    padding: 0;
+  }
+
+  .column::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  .column div {
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin: 0 0 0 25px;
+    padding: 0;
+  }
+
+  figure {
+    width: 300px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+  }
 </style>
