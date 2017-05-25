@@ -11,8 +11,8 @@
           <a class="btn1" href="#info">
             <div class="li1">Info</div>
           </a>
-          <a class="btn1" href="#resource">
-            <div class="li1">Resource</div>
+          <a class="btn1" href="#join">
+            <div class="li1">Join</div>
           </a>
         </div>
         <div class="hr1"></div>

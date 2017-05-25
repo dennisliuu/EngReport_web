@@ -17,7 +17,8 @@
                 <div class="col-md-6">
                   <div class="hover column">
                     <div>
-                      <figure><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t34.0-12/18155259_1268145399887893_217123409_n.jpg?oh=3104b17a405d432beb362c0eea661729&oe=592907AA" style="width: 300px" /></figure>
+                      <figure><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t34.0-12/18155259_1268145399887893_217123409_n.jpg?oh=3104b17a405d432beb362c0eea661729&oe=592907AA"
+                          style="width: 300px" /></figure>
                     </div>
                   </div>
                 </div>
@@ -62,22 +63,57 @@
       </el-col>
       <el-col :span="24">
         <div class="grid-content wow fadeInUp animated animated">
-          <div class="about" id="resource">
+          <div class="about" id="join">
             <div class="container">
               <div class="col-md-6">
                 <div class="clearfix"> </div>
               </div>
-              <div class="col-md-6">
-                <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Resource</h3>
-                <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
-
-                </h4>
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Join</h3>
+                  <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                    <p>Come on and submit your subject!! </p>
+                    <p>It will be fun !!</p>
+                  </h4>
+                </div>
+                <div class="col-md-6">
+                  <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjOhRDawELnEa0cls-EY4aHYSUHdXRbtyemae8CFU7wErPuA/viewform?embedded=true"
+                      width="100%" height="960" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                  </h4>
+                </div>
               </div>
               <div class="clearfix"> </div>
             </div>
           </div>
         </div>
       </el-col>
+      <el-col :span="24">
+        <div class="grid-content wow fadeInUp animated animated">
+          <div class="about" id="Resource">
+            <div class="container">
+              <div class="col-md-6">
+                <div class="clearfix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Resource</h3>
+                  <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                    <p>All Resource can be found here !</p>
+                  </h4>
+                </div>
+                <div class="col-md-6">
+                  <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                    <iframe src="https://docs.google.com/spreadsheets/d/14WHtQNdTIJznEj_rSzYi4_lh9FamGizR83GkFW5PdUE/pubhtml?widget=true&amp;headers=false" width="100%" height="100%"></iframe>
+                  </h4>
+                </div>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
+      </el-col>
+
     </el-row>
   </div>
 </template>
