@@ -1,15 +1,29 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-
-    <section class="blur-container blur-7 justify-content-center align-items-center">
-      <div class="blur-box">
-        <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-          <h2 class="text-uppercase">English as life</h2>
+    <header>
+      <section class="blur-container blur-7 justify-content-center align-items-center">
+        <div id="nav">
+          <ul class="social-container header__item">
+            <li class="social__icon social__icon--fb">
+              <img src="https://s29.postimg.org/3ldyta4qb/image.png" alt="facebook">
+            </li>
+            <li class="social__icon social__icon--dr">
+              <img src="https://s29.postimg.org/vqltn8fhv/image.png" alt="dribbble">
+            </li>
+            <li class="social__icon social__icon--in">
+              <img src="https://s29.postimg.org/p1fa77u5v/image.png" alt="instagram">
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
-
+        <div class="blur-box">
+          <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+            <h2 class="text-uppercase">English as life</h2>
+          </div>
+        </div>
+      </section>
+    </header>
+    
     <hello></hello>
 
     <footer class="footer-distributed">
@@ -29,12 +43,6 @@
     <transition name="fade" mode="out-in">
       <el-button id="toTop" type="text" icon="arrow-up" @click.native="backTop" v-if="scrollPosition>200"></el-button>
     </transition>
-
-    <!--<transition name="fade" mode="out-in">
-      <md-button id="toTop" class="md-icon-button" @click.native="backTop" v-if="scrollPosition>200">
-        <md-icon md-iconset="ion-arrow-up-b"></md-icon>
-      </md-button>
-    </transition>-->
 
   </div>
 </template>
@@ -111,10 +119,55 @@
     border: none;
     opacity: 1;
   }
+  /*header*/
+
+  #nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  #nav ul {
+    list-style: none;
+  }
+
+  #nav li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .social-container {
+    width: 7.25rem;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    float: right;
+  }
+
+  .social-container .social__icon {
+    width: 1.5rem;
+    float: left;
+    cursor: pointer;
+  }
+
+  .social-container .social__icon.social__icon--dr {
+    margin-left: 1.25rem;
+  }
+
+  .social-container .social__icon.social__icon--in {
+    margin-left: 1.5rem;
+  }
+
+  .social-container .social__icon.social__icon--fb img {
+    margin-right: 0 1.5rem;
+  }
   /*banner*/
 
   section {
-    height: 70vh;
+    height: 75vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -195,7 +248,7 @@
   }
 
   .footer-distributed {
-    background-color: rgb(238,238,238);
+    background-color: rgb(238, 238, 238);
     /*background-image: url('../assets/footer.svg');*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -252,7 +305,7 @@
   .footer-distributed .footer-right {
     float: right;
   }
-  /* maria */
+  /* media */
 
   @media (max-width: 800px) {
     .footer-distributed {

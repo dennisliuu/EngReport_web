@@ -3,22 +3,27 @@
     <p></p>
     <div class="hr1"> </div>
     <div class="ul">
-      <div class="li1">
-        <a class="btn1" href="#about" target="_parent">About</a>
-      </div>
-      <div class="li1">
-        <a class="btn1" href="#info" target="_parent">Info</a>
-      </div>
-      <div class="li1">
-        <a class="btn1" href="#resource">Resource</a>
-      </div>
+
+      <a class="btn1" href="#about">
+        <div class="li1">
+          About
+        </div>
+      </a>
+      <a class="btn1" href="#info">
+        <div class="li1">Info</div>
+      </a>
+      <a class="btn1" href="#resource">
+        <div class="li1">Resource</div>
+      </a>
     </div>
+
     <div class="hr1"></div>
+
     <p></p>
 
     <el-row>
       <el-col :span="24">
-        <div class="grid-content">
+        <div class="grid-content wow fadeInUp animated animated">
           <div class="about" id="about">
             <div class="container">
               <div class="col-md-6">
@@ -26,7 +31,7 @@
               </div>
               <div class="col-md-6">
                 <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">About</h3>
-                <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, an young man have an idea, maybe there is a better way to learn English, and the journey
+                <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, a young man have an idea, maybe there is a better way to learn English, and the journey
                   has begun...</h4>
               </div>
               <div class="clearfix"> </div>
@@ -34,11 +39,8 @@
           </div>
         </div>
       </el-col>
-    </el-row>
-
-    <el-row>
       <el-col :span="24">
-        <div class="grid-content">
+        <div class="grid-content wow fadeInUp animated animated">
           <div class="about" id="info">
             <div class="container">
               <div class="col-md-6">
@@ -48,16 +50,17 @@
                 <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Info</h3>
                 <h4 class="wow fadeInLeft animated animated text" data-wow-delay=".5s">Once upon a time, an young man have an idea, maybe there is a better way to learn English, and the journey
                   has begun...</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7599692877966!2d121.53330425066187!3d25.042218644037117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d14c16483%3A0xf9ec3b549c4d6dbf!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1495694272159"
+                  width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  <p></p>
               </div>
               <div class="clearfix"> </div>
             </div>
           </div>
         </div>
       </el-col>
-    </el-row>
-    <el-row>
       <el-col :span="24">
-        <div class="grid-content">
+        <div class="grid-content wow fadeInUp animated animated">
           <div class="about" id="resource">
             <div class="container">
               <div class="col-md-6">
@@ -74,20 +77,12 @@
         </div>
       </el-col>
     </el-row>
-
-    <!--<el-button @click="visible = true">按钮</el-button>
-                  <el-dialog v-model="visible" title="Hello world">
-                    <p>欢迎使用 Element</p>
-                    <div v-for="report in Reports" :key="report" :md-item="report">
-                      {{ report.Sub }}
-                    </div>
-                  </el-dialog>-->
   </div>
 </template>
 
 <script>
   import Firebase from 'firebase'
-
+  import $ from 'jquery'
   var config = {
     apiKey: "AIzaSyDGJYONggbsDhXsEyYvdWVgcb55RTtD-Uc",
     authDomain: "engrp-d185a.firebaseapp.com",
@@ -112,6 +107,14 @@
         Reports: db.ref('Reports')
       }
     },
+    methods: {
+      goto(e) {
+        console.log(e)
+        $('html, body').animate({
+          scrollTop: $("#info").offset().top
+        }, 1000);
+      }
+    }
   }
 
 </script>
