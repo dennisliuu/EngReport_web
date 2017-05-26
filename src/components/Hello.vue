@@ -17,12 +17,12 @@
                 <div class="col-md-6">
                   <div class="hover column">
                     <div>
-                      <figure><img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t34.0-12/18155259_1268145399887893_217123409_n.jpg?oh=3104b17a405d432beb362c0eea661729&oe=592907AA"
-                          style="width: 300px" /></figure>
+                      <figure><img src="../assets/pic1.svg"/></figure>
                     </div>
                   </div>
                 </div>
               </div>
+              <p></p>
               <div class="clearfix"> </div>
             </div>
           </div>
