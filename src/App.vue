@@ -20,6 +20,9 @@
               <a class="btn1" href="#join">
                 <div class="li1">Join</div>
               </a>
+              <a class="btn1" href="#recored">
+                <div class="li1">Recored</div>
+              </a>
             </div>
             <div class="hr1"></div>
           </div>

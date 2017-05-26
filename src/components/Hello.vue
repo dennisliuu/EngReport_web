@@ -17,7 +17,7 @@
                 <div class="col-md-6">
                   <div class="hover column">
                     <div>
-                      <figure><img src="../assets/pic1.svg"/></figure>
+                      <figure><img src="../assets/pic1.svg" /></figure>
                     </div>
                   </div>
                 </div>
@@ -78,8 +78,32 @@
                 </div>
                 <div class="col-md-6">
                   <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjOhRDawELnEa0cls-EY4aHYSUHdXRbtyemae8CFU7wErPuA/viewform?embedded=true"
-                      width="100%" height="960" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+
+                    <div style="margin: 20px;"></div>
+                    <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
+                      <el-form-item label="Date">
+                        <el-date-picker v-model="datetime" type="date" placeholder="Choose a date" :picker-options="pickerOptions0">
+                        </el-date-picker>
+                      </el-form-item>
+                      <el-form-item label="Subject" prop="sub" :rules="[
+                          { required: true, message: '不能為空'}
+                        ]">
+                        <el-input type="sub" v-model.number="numberValidateForm.sub" auto-complete="off"></el-input>
+                      </el-form-item>
+
+                      <el-form-item label="link" prop="link" :rules="[
+                          { required: true, message: '不能為空'}
+                        ]">
+                        <el-input type="link" v-model="numberValidateForm.link" auto-complete="off"></el-input>
+                      </el-form-item>
+
+                      <el-form-item>
+                        <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
+                        <el-button @click="resetForm('numberValidateForm')">重置</el-button>
+                      </el-form-item>
+                    </el-form>
+                    <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjOhRDawELnEa0cls-EY4aHYSUHdXRbtyemae8CFU7wErPuA/viewform?embedded=true"
+                      width="100%" height="960" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>-->
                   </h4>
                 </div>
               </div>
@@ -90,21 +114,30 @@
       </el-col>
       <el-col :span="24">
         <div class="grid-content wow fadeInUp animated animated">
-          <div class="about" id="Resource">
+          <div class="about" id="recored">
             <div class="container">
               <div class="col-md-6">
                 <div class="clearfix"> </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Resource</h3>
+                  <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Recored</h3>
                   <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
-                    <p>All Resource can be found here !</p>
+                    <p>All Recored can be found here !</p>
                   </h4>
                 </div>
                 <div class="col-md-6">
                   <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
-                    <iframe src="https://docs.google.com/spreadsheets/d/14WHtQNdTIJznEj_rSzYi4_lh9FamGizR83GkFW5PdUE/pubhtml?widget=true&amp;headers=false" width="100%" height="100%"></iframe>
+                    <el-table :data="Reports" border stripe style="width: 100%" :default-sort="{prop: 'date', order: 'descending'}">
+                      <el-table-column prop="sub" label="Subject" align="center" sortable>
+                      </el-table-column>
+                      <el-table-column prop="date" label="Date" align="center" sortable>
+                      </el-table-column>
+                      <el-table-column prop="link" label="Link" align="center" sortable>
+                      </el-table-column>
+                    </el-table>
+                    <!--<iframe src="https://docs.google.com/spreadsheets/d/14WHtQNdTIJznEj_rSzYi4_lh9FamGizR83GkFW5PdUE/pubhtml?widget=true&amp;headers=false"
+                      width="100%" height="100%"></iframe>-->
                   </h4>
                 </div>
               </div>
@@ -137,7 +170,17 @@
     name: 'hello',
     data() {
       return {
-        visible: false
+        visible: false,
+        numberValidateForm: {
+          sub: '',
+          link: ''
+        },
+        pickerOptions0: {
+          disabledDate(time) {
+            return time.getTime() < Date.now() - 8.64e7;
+          }
+        },
+        datetime: ''
       }
     },
     firebase: function () {
@@ -151,6 +194,30 @@
         $('html, body').animate({
           scrollTop: $("#info").offset().top
         }, 1000);
+      },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            this.$alert('Success', 'Congratulations', {
+              confirmButtonText: 'OK',
+              callback: action => {
+                this.$message({
+                  type: 'info',
+                  message: `action: ${action}`
+                });
+              }
+            });
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+      formatter(row, column) {
+        return row.address;
       }
     }
   }
