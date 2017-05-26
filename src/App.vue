@@ -1,7 +1,49 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <nav class="navbar fixed-top">
+
+    <nav class="navbar navbar-toggleable-md navbar-light fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" style="z-index: 99999" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Navbar</a>-->
+      <div class="collapse navbar-collapse wow animated fadeInDown" id="navbarNav">
+        <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+        <!--<nav class="navbar fixed-top navbar-nav">
+          <div class="wow animated fadeInDown">
+            <div class="hr1"> </div>
+            <div class="ul">
+              <a class="btn1" href="#about">
+                <div class="li1">About</div>
+              </a>
+              <a class="btn1" href="#info">
+                <div class="li1">Info</div>
+              </a>
+              <a class="btn1" href="#join">
+                <div class="li1">Join</div>
+              </a>
+            </div>
+            <div class="hr1"></div>
+          </div>
+        </nav>-->
+      </div>
+    </nav>
+
+    <!--<nav class="navbar fixed-top">
       <div class="wow animated fadeInDown">
         <div class="hr1"> </div>
         <div class="ul">
@@ -17,8 +59,7 @@
         </div>
         <div class="hr1"></div>
       </div>
-      <!--<a class="navbar-brand" href="#">Fixed top</a>-->
-    </nav>
+    </nav>-->
 
     <header>
       <section class="blur-container blur-7 justify-content-center align-items-center">
@@ -139,7 +180,7 @@
 
   #nav {
     position: fixed;
-    z-index: 1000;
+    z-index: 100;
     top: 0;
     left: 0;
     width: 100%;
