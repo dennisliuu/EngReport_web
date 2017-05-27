@@ -265,8 +265,9 @@
   }
 
   .footer-distributed {
-    background-color: rgb(238, 238, 238);
-    /*background-image: url('../assets/footer.svg');*/
+    /*background-color: rgb(238, 238, 238);*/
+    background-color: transparent;
+    /*background-image: url('./assets/footer.svg');*/
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.8;

@@ -82,7 +82,7 @@
                     <div style="margin: 20px;"></div>
                     <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
                       <el-form-item label="Date">
-                        <el-date-picker v-model="datetime" type="date" placeholder="Choose a date" :picker-options="pickerOptions0">
+                        <el-date-picker v-model="datetime" type="date" format="mm-dd" placeholder="Choose a date" :picker-options="pickerOptions0">
                         </el-date-picker>
                       </el-form-item>
                       <el-form-item label="Subject" prop="sub" :rules="[
@@ -128,6 +128,7 @@
                 </div>
                 <div class="col-md-6">
                   <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
+                    <div style="margin: 20px;"></div>
                     <el-table :data="Reports" border stripe style="width: 100%" :default-sort="{prop: 'date', order: 'descending'}">
                       <el-table-column prop="sub" label="Subject" align="center" sortable>
                       </el-table-column>
@@ -198,14 +199,9 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$alert('Success', 'Congratulations', {
-              confirmButtonText: 'OK',
-              callback: action => {
-                this.$message({
-                  type: 'info',
-                  message: `action: ${action}`
-                });
-              }
+            this.$message({
+              type: 'info',
+              message: `action: Submit`
             });
           } else {
             console.log('error submit!!');
@@ -215,9 +211,6 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
-      },
-      formatter(row, column) {
-        return row.address;
       }
     }
   }
