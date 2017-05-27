@@ -82,7 +82,7 @@
                     <div style="margin: 20px;"></div>
                     <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
                       <el-form-item label="Date">
-                        <el-date-picker v-model="datetime" type="date" format="mm-dd" placeholder="Choose a date" :picker-options="pickerOptions0">
+                        <el-date-picker v-model="numberValidateForm.date" type="date" format="mm-dd" placeholder="Choose a date" :picker-options="pickerOptions0">
                         </el-date-picker>
                       </el-form-item>
                       <el-form-item label="Subject" prop="sub" :rules="[
@@ -94,7 +94,9 @@
                       <el-form-item label="link" prop="link" :rules="[
                           { required: true, message: '不能為空'}
                         ]">
-                        <el-input type="link" v-model="numberValidateForm.link" auto-complete="off"></el-input>
+                        <el-input type="link" v-model="numberValidateForm.link" auto-complete="off">
+                          <template slot="prepend">Http://</template>
+                        </el-input>
                       </el-form-item>
 
                       <el-form-item>
@@ -135,6 +137,14 @@
                       <el-table-column prop="date" label="Date" align="center" sortable>
                       </el-table-column>
                       <el-table-column prop="link" label="Link" align="center" sortable>
+                        <template scope="scope">
+                          <el-button
+                            @click.native.prevent="openurl(scope.row.link)"
+                            type="text"
+                            size="small">
+                            Link
+                          </el-button>
+                        </template>
                       </el-table-column>
                     </el-table>
                     <!--<iframe src="https://docs.google.com/spreadsheets/d/14WHtQNdTIJznEj_rSzYi4_lh9FamGizR83GkFW5PdUE/pubhtml?widget=true&amp;headers=false"
@@ -155,7 +165,7 @@
 <script>
   import Firebase from 'firebase'
   import $ from 'jquery'
-  var config = {
+  let config = {
     apiKey: "AIzaSyDGJYONggbsDhXsEyYvdWVgcb55RTtD-Uc",
     authDomain: "engrp-d185a.firebaseapp.com",
     databaseURL: "https://engrp-d185a.firebaseio.com",
@@ -164,8 +174,9 @@
     messagingSenderId: "728270283768"
   };
 
-  var firebaseApp = Firebase.initializeApp(config)
-  var db = firebaseApp.database()
+  let firebaseApp = Firebase.initializeApp(config)
+  let db = firebaseApp.database()
+  let reportsRef = db.ref('Reports')
 
   export default {
     name: 'hello',
@@ -174,19 +185,19 @@
         visible: false,
         numberValidateForm: {
           sub: '',
+          date: '',
           link: ''
         },
         pickerOptions0: {
           disabledDate(time) {
             return time.getTime() < Date.now() - 8.64e7;
           }
-        },
-        datetime: ''
+        }
       }
     },
     firebase: function () {
       return {
-        Reports: db.ref('Reports')
+        Reports: reportsRef
       }
     },
     methods: {
@@ -197,6 +208,7 @@
         }, 1000);
       },
       submitForm(formName) {
+        reportsRef.push(this.numberValidateForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$message({
@@ -208,10 +220,17 @@
             return false;
           }
         });
+        this.$refs[formName].resetFields();
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      openurl(url) {
+        window.open('https://' + url)
       }
+      // removeForm(formName) {
+      //   reportsRef.child(formName['.key']).remove()
+      // }
     }
   }
 
