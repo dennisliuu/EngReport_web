@@ -126,6 +126,7 @@
                   <h3 class="wow fadeInLeft animated animated title" data-wow-delay=".5s">Recored</h3>
                   <h4 class="wow fadeInLeft animated animated text" data-wow-delay="1s">
                     <p>All Recored can be found here !</p>
+                    <p><a href="./words/" style="color: #365473">Words</a></p>
                   </h4>
                 </div>
                 <div class="col-md-6">
