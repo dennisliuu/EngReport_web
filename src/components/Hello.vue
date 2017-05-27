@@ -82,7 +82,7 @@
                     <div style="margin: 20px;"></div>
                     <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="100px" class="demo-ruleForm">
                       <el-form-item label="Date">
-                        <el-date-picker v-model="numberValidateForm.date" type="date" format="mm-dd" placeholder="Choose a date" :picker-options="pickerOptions0">
+                        <el-date-picker v-model="numberValidateForm.date" type="date" format="MM-dd" placeholder="Choose a date" :picker-options="pickerOptions0">
                         </el-date-picker>
                       </el-form-item>
                       <el-form-item label="Subject" prop="sub" :rules="[
@@ -201,21 +201,18 @@
       }
     },
     methods: {
-      goto(e) {
-        console.log(e)
-        $('html, body').animate({
-          scrollTop: $("#info").offset().top
-        }, 1000);
-      },
       submitForm(formName) {
-        reportsRef.push(this.numberValidateForm)
+        var chooseDate = String(this.numberValidateForm.date).split(' ')
+        this.numberValidateForm.date = chooseDate[1] + '-' + chooseDate[2]
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            reportsRef.push(this.numberValidateForm)
             this.$message({
               type: 'info',
               message: `action: Submit`
             });
           } else {
+            this.$refs[formName].resetFields();
             console.log('error submit!!');
             return false;
           }
@@ -228,9 +225,6 @@
       openurl(url) {
         window.open('https://' + url)
       }
-      // removeForm(formName) {
-      //   reportsRef.child(formName['.key']).remove()
-      // }
     }
   }
 
