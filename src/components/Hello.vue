@@ -88,13 +88,13 @@
                       <el-form-item label="Subject" prop="sub" :rules="[
                           { required: true, message: '不能為空'}
                         ]">
-                        <el-input type="sub" v-model.number="numberValidateForm.sub" auto-complete="off"></el-input>
+                        <el-input type="sub" v-model.number="numberValidateForm.sub" placeholder="What's Your Subject?" auto-complete="off"></el-input>
                       </el-form-item>
 
                       <el-form-item label="link" prop="link" :rules="[
                           { required: true, message: '不能為空'}
                         ]">
-                        <el-input type="link" v-model="numberValidateForm.link" auto-complete="off">
+                        <el-input type="link" v-model="numberValidateForm.link" placeholder="Please remove https://" auto-complete="off">
                           <template slot="prepend">Http://</template>
                         </el-input>
                       </el-form-item>
