@@ -42,18 +42,18 @@
 
                   <p>時間:星期二加星期三中間空堂</p>
 
-                  <p>地點:三教空教室(暫定)</p>
+                  <p>地點:三教空教室</p>
 
                   <p>內容:一周準備一篇文章(報章新聞雜誌皆可) 利用充分時間將文章內不熟的單字及文法作筆記(單 字可用電子檔印出) (用螢光筆畫記兩份:自己看到別人也看的到) 準備兩道問答題測驗對方有無看懂文意 必要時翻譯文章內容
                     並列印雙份文件保存。
                   </p>
 
-                  <p>方式:雙方將不會的單字及文法弄懂後 準備方開始朗讀文章(注意段落及語氣) 閱讀後讓對方自行吸收約10min 開始問答題(no Chinese) 會後檢討對方的優缺點 之後隨著程度上升調整文章篇數 一次要比一次好
+                  <p>方式:雙方將不會的單字及文法弄懂後 準備方開始朗讀文章(注意段落及語氣) 學習進行全程錄音 可以保存起來當作未來檢討依據 閱讀後讓對方自行吸收約10min 開始問答題(no Chinese) 會後檢討對方的優缺點 之後隨著程度上升調整文章篇數 一次要比一次好
                     我們的目標就是希望能把英文學好、精通英文。 一起加油！
                   </p>
                 </h6>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7599692877966!2d121.53330425066187!3d25.042218644037117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a97d14c16483%3A0xf9ec3b549c4d6dbf!2z5ZyL56uL6Ie65YyX56eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1495694272159"
-                  width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  width="100%" height="300px" frameborder="0" style="border:0"></iframe>
                 <p></p>
               </div>
               <div class="clearfix"> </div>
@@ -224,6 +224,7 @@
         this.$refs[formName].resetFields();
       },
       openurl(url) {
+        url = url.replace("https://","")
         window.open('https://' + url)
       }
     }
